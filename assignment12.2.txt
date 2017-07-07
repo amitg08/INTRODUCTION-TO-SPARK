@@ -1,0 +1,29 @@
+Q1. How are worker, executor and task related to each other?
+Ans:A worker process executes a subset of a topology. A worker process belongs to a specific topology and may run one or 
+    more executors for one or more components (spouts or bolts) of this topology. 
+    An executor is a thread that is spawned by a worker process. It may run one or more tasks for the same component 
+   (spout or bolt).
+   A task performs the actual data processing — each spout or bolt that you implement in your code executes as many tasks 
+   across the cluster. The number of tasks for a component is always the same throughout the lifetime of a topology, but
+   the number of executors (threads) for a component can change over time. 
+
+Q2. What are the key features of Spark?
+Ans: 1.Rich API
+     2.Resilient Distributed Datasets (RDD)
+     3.DAG based execution
+     4.Data caching (In-Memory Processing)
+
+Q3. What is Spark Driver?
+Ans:The spark driver is the program that declares the transformations and actions on RDDs of data and submits such 
+    requests to the master. In practical terms, the driver is the program that creates the SparkContext, connecting to a
+    given Spark Master.
+
+Q4. What are the benefits of Spark over MapReduce?
+Ans:1.Easy to program and does not require any abstractions.
+    2.Programmers can perform streaming, batch processing and machine learning ,all in the same cluster.
+    3.Executes jobs 10 to 100 times faster than Hadoop MapReduce.
+    4.Programmers can modify the data in real-time through Spark streaming.
+
+Q5. What is Spark Executor?
+Ans:Executors are worker nodes' processes in charge of running individual tasks in a given Spark job. They are launched at
+    the beginning of a Spark application and typically run for the entire lifetime of an application.
